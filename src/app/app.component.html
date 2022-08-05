@@ -1,0 +1,64 @@
+<h1>
+  <span style="text-decoration: underline;">Medication Management System</span>
+</h1>
+<h2>&nbsp;</h2>
+<h2>List of Medications:</h2>
+<!-- The table for List of Medications -->
+<table
+  style="height: 18px; width: 58.8937%; border-collapse: collapse;"
+  border="0"
+  id="medicationList"
+>
+  <thead>
+    <tr>
+      <th>Medication id</th>
+      <th>Medication name</th>
+      <th>Medication dose</th>
+      <th>Medication repeats</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of medications">
+      <td>{{ m.medicationId }}</td>
+      <td>{{ m.medicationName }}</td>
+      <td>{{ m.medicationDose }}</td>
+      <td>{{ m.medicationRepeat }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&nbsp;</p>
+<h2>Add Medication:</h2>
+<!-- This has the medication information -->
+<label for="mid">Enter medication id:</label>
+<input #mid type="number" name="medicationId" id="medicationId" />
+<br /><br />
+<label for="mname">Enter medication name:</label>
+<input #mname type="text" name="medicationName" id="medicationName" />
+<br /><br />
+<label for="mdose">Enter medication dose:</label>
+<input #mdose type="number" name="medicationDose" id="medicationDose" />
+<br /><br />
+<label for="mrepeat">Enter medication repeats:</label>
+<input #mrepeat type="number" name="medicationRepeat" id="medicationRepeat" />
+<br /><br />
+<button (click)="add(mid.value, mname.value, mdose.value, mrepeat.value)">
+  Add Medication
+</button>
+
+<p><br /><br /></p>
+<h2>Delete Medication:</h2>
+<!-- This is the section for deleting the medication by name -->
+<label for="medicationNameForDelete"
+  >Enter the medication name you want to delete:
+</label>
+<input
+  #mnamedel
+  id="medicationNameForDelete"
+  name="medicationNameForDelete"
+  type="text"
+/>
+<br /><br />
+<button (click)="remove(mnamedel.value)">Delete Medication</button>
+
+<p>&nbsp;</p>
